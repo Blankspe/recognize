@@ -1,0 +1,5 @@
+[build]
+  command = "pip install -r requirements.txt && gunicorn app:app"  #  安装依赖并启动 Gunicorn 服务，app:app 中第一个 app 是 Flask 应用实例所在模块名（如 app.py 则为 app ），第二个 app 是实例变量名
+  publish = "."  #  发布目录，Flask 项目一般填当前目录（.），若有静态文件单独目录可调整
+  [build.environment]
+    FLASK_ENV = "production"  #  生产环境标识
