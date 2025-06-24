@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>智能建造识别</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background: #f7f7f7; }
+        .container { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px #ccc; max-width: 500px; margin: auto; }
+        h2 { text-align: center; }
+        .upload-form { margin-bottom: 20px; }
+        .result-img { display: block; margin: 20px auto; max-width: 100%; border: 1px solid #ddd; border-radius: 4px; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>智能建造识别</h2>
+    <form class="upload-form" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required>
+        <button type="submit">上传并识别</button>
+    </form>
+    {% if result_img and origin_img %}
+        <h3>上传的图片：</h3>
+        <img class="result-img" src="/{{ origin_img.replace('\\', '/') }}" alt="上传的图片">
+
+        <h3>识别结果：</h3>
+        <img class="result-img" src="/{{ result_img.replace('\\', '/').rsplit('.', 1)[0] + '.jpg' }}" alt="识别结果">
+    {% endif %}
+</div>
+</body>
+</html> 
