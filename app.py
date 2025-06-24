@@ -16,7 +16,7 @@ os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 os.makedirs(app.config['RESULT_FOLDER'], exist_ok=True)
 
 # 加载YOLOv5模型（首次会自动下载权重）
-model = torch.hub.load('ultralytics/yolov5', 'yolov5n', pretrained=True)
+model = torch.hub.load('ultralytics/yolov5', 'custom', path_or_model='yolov5n.pt')
 
 if os.path.exists("./results") and os.path.isdir("./results"):
     shutil.rmtree("./results")
